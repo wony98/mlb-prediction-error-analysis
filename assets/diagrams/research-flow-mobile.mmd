@@ -1,0 +1,9 @@
+flowchart TB
+    A["경기 전 자료<br/>수집·연결"] --> B["모델·LLM<br/>예측·근거 기록"]
+    B --> C["경기 후 PBP<br/>결과 대조·회고"]
+    classDef data fill:#eaf1f9,stroke:#557495,color:#172b41;
+    classDef inference fill:#eaf4ee,stroke:#57866b,color:#193b2a;
+    classDef review fill:#fcf0df,stroke:#ad8246,color:#4d3718;
+    class A data;
+    class B inference;
+    class C review;

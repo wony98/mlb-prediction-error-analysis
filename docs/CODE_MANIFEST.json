@@ -1,0 +1,861 @@
+{
+  "purpose": "Historical research source excerpts; not an operational release",
+  "source_files": 87,
+  "validation": "Static syntax and selected contracts only; execution not performed",
+  "files": [
+    {
+      "path": "src/_mlb_raw_pbp_refresh.py",
+      "role": "Final 경기 PBP 수집",
+      "source_sha256": "cbfa9a6d1f45cde7473a42aeddf5ee7b22fffd8f030bfb7a1db0b40efb59033a",
+      "export_sha256": "69ff51174340a1c65642f7ea07d31e8a1a5739350994297db4e6db5337d8db11",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_statcast_backfill.py",
+      "role": "Statcast 일별 수집·집계",
+      "source_sha256": "905117e97a0ec63ea40f0aa9a17876ba6b7545910d4a5195e96a167ba9796567",
+      "export_sha256": "6fd62ce6ad946cabf114fd52c569834ef60c7a326896856ad8177d7296745f04",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_lineup_backfill_5seasons.py",
+      "role": "과거 라인업 보강",
+      "source_sha256": "2d1f32c835b080ab4b98e44c4ed896185b73fefcc930d07d49c01d3b41c91ccd",
+      "export_sha256": "162bae96d6a6375a895d28197eda7af778272b3f42046afa0a685c91733f55f2",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders."
+      ]
+    },
+    {
+      "path": "src/_mlb_weather_backfill_5seasons.py",
+      "role": "과거 경기 환경 수집",
+      "source_sha256": "dd8d14dc5bdb7f885a0130b348c282286031299e023d3b8336943d3f8fd275e0",
+      "export_sha256": "df1de9d364954af84c6692ea11bc8601491bfe1a5194471be648f83f24dfe740",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_ump_backfill.py",
+      "role": "주심 결측 보강",
+      "source_sha256": "6694946bde939493fb9bafd6851a9467055bb7e58db88dbcfc22e69c195ff810",
+      "export_sha256": "cfbd3afe0efca1d8241a59b3416d21e1120668919182fcb36ba983d373deedf7",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_build_train.py",
+      "role": "학습 테이블 결합·행수 검사",
+      "source_sha256": "ddc09cdd85179b55ac9d6893d4c475147477569cf958dc67e076df869c50ea39",
+      "export_sha256": "441b8ab6197f9e72010d3f24d5f536b609afc92fe66c0658181c4b7c37a63ae9",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_sc_features.py",
+      "role": "투구·타구 rolling 특성",
+      "source_sha256": "8d861f7de1c7d484aa0a1c9ea7a8f71d9634755d52cf8b3ecd0c2228c3e5f564",
+      "export_sha256": "585084ab587efb36b61de06acf08b51b4b641c86bd402ac9c2fd231020ba01ed",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_mlb_live_features.py",
+      "role": "예측용 특성 조립",
+      "source_sha256": "0d05dc589bac879fd2cd8bf7effc83159af2905850b8a982d0cd01755a1e9827",
+      "export_sha256": "e7391843bed3632154e2bf779c2739646939160f0c973d0a4c18d09790e7c47b",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_mlb_train_deploy.py",
+      "role": "승패 모델 학습·메타데이터",
+      "source_sha256": "8b5994ac0d9b30bbf75366173a954a78fc1bcf35ab843e9f1e0dcf44f0636e51",
+      "export_sha256": "d42a0f049ad29f460d85f5e1713e5a0369ef03b12aa91ded6404fe3e588c4554",
+      "changes": [
+        "Metadata prose neutralized; model parameters, feature selection and fit computations retained.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_train_deploy_run_total.py",
+      "role": "총득점 회귀·bias 저장",
+      "source_sha256": "c5b9c28483cdcf32ba8d7f5d1d449116e3969e60d748a224ed1b437908cd33ee",
+      "export_sha256": "ecf53aa3add0ff37aa4e62dd584eb0ce77a0c2426f62fa001dcf606de2358631",
+      "changes": [
+        "Amount-tier table and metadata removed; regression, feature selection, bias and signal threshold retained. Formatting normalized.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_sp_asof_clean.py",
+      "role": "선발 누적 성적 as-of 재구성",
+      "source_sha256": "7f20ea8407de8d1c4732db95333fcc2e70b543c383ca9c8e5474747b19c7937b",
+      "export_sha256": "ad38c9cd1b2ff36b36aea94b7ae2273babddfe72e806148c85c8753c81ab484c",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "archive/legacy_v2/run_mlb_predict.py",
+      "role": "구형 v2 모델 추론 및 v3 재사용 입력 생성 이력",
+      "source_sha256": "a44b9dea0d3419daf6a3fa790a903cc0cd401e2ff8cbb3f98d7f5a7753a023f9",
+      "export_sha256": "25453c0fe48948751f2513451d1af20cca838874eb2af39fcf27d976f0ae3fa0",
+      "changes": [
+        "Legacy v2: snapshot/identity helpers and original four-model loading block only; collection, execution, amount sizing and delivery omitted. New named wrapper encloses the historical loading statements.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/run_mlb_v3.py",
+      "role": "일일 슬레이트·분석 연결",
+      "source_sha256": "cd0f837b28d98d6bc2b11b540b5a376b5e5e232d9916f6895a87b0f24a86de4f",
+      "export_sha256": "a451b24728ceef7ae9a44b7b6bc45ce276fa8d34eba30f939e2d72c920e2d3be",
+      "changes": [
+        "Live market branch removed; frozen and strict replay branches retained. Missing inputs raise an explicit error.",
+        "Amount sizing, zones, combination outputs and related freeze/output columns removed; RUN_TOTAL predicted total, bias subtraction and direction formula retained.",
+        "Message formatter/sender replaced with CSV/JSON file output. Former sending layout and delivery accounting are not reproduced.",
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_pregame_freeze_inputs.py",
+      "role": "입력 snapshot 고정",
+      "source_sha256": "dfca269439facc29ab7ffd438d23274aa450b79077637dcf5c3995a31cd525fe",
+      "export_sha256": "c7f0b6b040ee35de6527b64e7788880e6c6e86d4d0b593cc74115335ebb2756d",
+      "changes": [
+        "Live collection entry fails explicitly; no empty-success market fallback.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_narr_codex_run.py",
+      "role": "Codex 추론 단계 조율",
+      "source_sha256": "f497e9f4898fcc0a490560bb0410cec8ffaae336b1b583e0db9eff5f2838ae6f",
+      "export_sha256": "3291a7e755fcbcc2e09bc1c388cc60df26702448162137b1c2abcd439641630f",
+      "changes": [
+        "Hard-stop notification replaced by a local JSON receipt, retaining completeness audit call.",
+        "Post-reasoning delivery/receipt phase replaced with explicit local reasoning-ready JSON; no successful external-delivery claim is produced.",
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_narr_c3_per_game_run.py",
+      "role": "C3 경기별 격리 prompt·실행",
+      "source_sha256": "c467063e3ba0a933e490a103c332df045532696071183f0a2f098fbafb551b1a",
+      "export_sha256": "cb6a11e61ea95b4345eebee6770e8f64c20aa48cebbf06a1268db287bce9b57f",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_narr_c3_assemble.py",
+      "role": "경기별 응답 조립",
+      "source_sha256": "f42f7e815147fc412df82ac7ea3ac32c4a60333116da98c2a6460b8c1c563cc2",
+      "export_sha256": "948e102b2079db89a0bb7dfc666b3af92e51c3367d9fd4ccf89fca52c6bf6e2c",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_narr_c3_crosscheck.py",
+      "role": "C3 hash·출력 계약 검사",
+      "source_sha256": "2e71d49538af0a81fe6da36056c304671f801c96882b8c2e9611dcd5f42ffbc8",
+      "export_sha256": "a98cce5381a18b10cabda838d9f686b09d8fa368a4de0c168236ca135e97c845",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_narr_reasoning.py",
+      "role": "근거·과거 회고 prompt 조립",
+      "source_sha256": "399925c575ae2893ed19c0de9e21531ef5ebf9a841fbb0df20318185068c8acd",
+      "export_sha256": "118128bd33039948d48ab66006b7869a0da2ea7fb078aac1e8eac2922101fdf0",
+      "changes": [
+        "Removed an amount-derived support shortcut (amount tier at least 2); explicit zone/edge evidence remains. This changes one prompt-support condition.",
+        "Default context/rule paths reconnected to the exported src and prompts locations.",
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/narr_context.py",
+      "role": "선수 사실 컨텍스트 생성",
+      "source_sha256": "67c37a270be131fe656c3560108a0e13561a76b87a50fa1ea8e450d3b0adeb3d",
+      "export_sha256": "34a1444e4ef21f8bcd24057a3020297e9a51b7bbb3c72d12dedb4a37d40681bb",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "prompts/_narr_rules.md",
+      "role": "네레이터 판단 지침 원문",
+      "source_sha256": "3acb041d8c3092ae99c2f12ef3bb1513379dc79904f71396ebbc482cfaf74de3",
+      "export_sha256": "306c5088ce8a6a103fde0fbdf28d4f6d3764c42d97404011a18590cde8f8705b",
+      "changes": [
+        "Historical prompt preserved with warning; delivery/amount instructions and private identifiers removed.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_narr_priors.py",
+      "role": "선수별 누적 회고 사전 조회",
+      "source_sha256": "c0877b9a0e2efcf0873edd4efdd1e9bb90472d916ea88a660ade01fdbacb1b61",
+      "export_sha256": "f158ba3448c990e0b8f75f2c8876015c32c139bc8d2346bfb29beab621aa58ab",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/run_postgame.py",
+      "role": "결과·회고 단계 조율",
+      "source_sha256": "1005b1551b4b93e9bc76b8f12949698d5aa2c7eb387145c70feb2c55cf76db86",
+      "export_sha256": "c1c74f65d7064352bb9a8428dd2a4aed1331d19fa53b4a51c2435ec5652219fb",
+      "changes": [
+        "MLB stage map only; other-league dispatch/main execution and messaging/readiness auto-send steps omitted. This map does not execute commands.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_deepread_cli.py",
+      "role": "정독 LLM 호출·증분 처리",
+      "source_sha256": "1ab3ce24381fde64df1e9fec4be7093e7b49268a3ba33caf074e3bfc2541c8e7",
+      "export_sha256": "12b2a8b63ed03e036252d7cdf05f4728bac0295df16506d3a78434160a0a2101",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_mlb_synth_cli.py",
+      "role": "사전·사후 분리 합성",
+      "source_sha256": "97b7749b71665bc039e3c4fd327c8ef358cab0a28c95aaed2482464c4f485736",
+      "export_sha256": "c5bc660900cb0cf6fc193bdd56684cb5c16010bf01d6ed150c5f9a0b022d6fd3",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders."
+      ]
+    },
+    {
+      "path": "src/_reason_bundles.py",
+      "role": "PBP·캐시 회고 입력 조립",
+      "source_sha256": "ed1b1b48442bdb920491aaf6f91fe65fe86247f0609fb382b72a5fd9054fd425",
+      "export_sha256": "6383eb350f2951e72a5e536caf0d509cd60f0f7e0ade267293cb05b32f0fcd04",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_synth_input.py",
+      "role": "과거 폼·시즌 시퀀스 조립",
+      "source_sha256": "ce68903bde3d17c8100cf3ec84b40ce04794b3b806e8ac5913b0685cff89bb90",
+      "export_sha256": "026f7236b80b0976d0fbd133fe350c479009b4a7239152bf383d093fee415dbd",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/run_mlb_update.py",
+      "role": "공식 결과 갱신",
+      "source_sha256": "12305da5f14b693623e80a29385a6262c679e73631835318566b579466e474a3",
+      "export_sha256": "08e89a8ff3e9336cbf1f1a95d30ecda9a6ceaeb0f9bbd51fdce3a50177bce2c8",
+      "changes": [
+        "Amount and return reporting and automatic downstream backfill omitted; result matching and CSV writes retained; simple accuracy summary added.",
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_prediction_delta_review.py",
+      "role": "모델·네레이터 결과 차이 회고",
+      "source_sha256": "f20d204ba84130b07ef8d9f286b56b4ef1d0ba0737b46ca41bf909280670c462",
+      "export_sha256": "0a35a268e1252259ebd452d4f2c1ba64c225de4d7279403842cb58bcd8a5437d",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_recap_to_master.py",
+      "role": "정독 결과 병합·후속 갱신",
+      "source_sha256": "a387a4deb946b8ad3149bf41dce463e65344fa45b719ca75c2059f22b1cd6daa",
+      "export_sha256": "d4b4377b6220e3458309620f059855bb33ff8ef1c938a3fe13ab5c46f2ec1cb7",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_mlb_fullread_v4_bullpen_ledger.py",
+      "role": "불펜 stint·사전 사용량 원장",
+      "source_sha256": "422b1a63d60115fc65cc541ca8358f2dbf2140e8f12f87b2293750678bae5704",
+      "export_sha256": "0c60a4f75b8aa3c90b0db1cd48855308531b5a4dfee5a40f863e1a695afc0caf",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_fullread_v4_bullpen_appearance_projection.py",
+      "role": "불펜 등판 후보 구성",
+      "source_sha256": "3decf4eaf1cdb83923153e66a1cba5fe3f190c9065e8c10b1b9ad510f811408a",
+      "export_sha256": "0367f7935c15cfe4e1666742198f99128d2cf5a4908dd0d85fc70e93dd750180",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_player_detail_stats.py",
+      "role": "선수별 투구·타구 상세 집계",
+      "source_sha256": "62d4f10d3da5da8702ec886ba8fa0d6ad67a41251b26ae3e87b210e164628966",
+      "export_sha256": "ee842be6c1a476f788001a926a7032861643bba53be41869161922f7ef8d40d4",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/tools/mlb_ability_inputs.py",
+      "role": "개인 능력·맞대결 셀 구성",
+      "source_sha256": "01036d85579d6889268fa9bd20880f4a766bb9d2a2be615b6e85a7ed2c842bba",
+      "export_sha256": "aa1581ca113cd305898edff435a609b446cc23930021412ac23c9eff0c812496",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/tools/mlb_evidence_field_contract.py",
+      "role": "필드 용도·미등록 필드 계약",
+      "source_sha256": "25fc45045c47deb0e860c588467696d4aea2eec0b3b14d2cd467d670278f44ac",
+      "export_sha256": "fbccdd07dda8d698439af9382e97abebd729ef0c87d2dc71de39d7dcf22324f0",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/tools/mlb_pregame_source_packet.py",
+      "role": "사전 source family 연결",
+      "source_sha256": "1fb1e86c944e1e817740c31e8e316b8714241791184d35daa88a78531b57516e",
+      "export_sha256": "7135ede31ccf870307fb1c63aa58c626ee0be3c80a3202ec0ba2bb190456e6f8",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/tools/mlb_official_player_history.py",
+      "role": "공식 선수 gameLog·부담 집계",
+      "source_sha256": "a9fa75539125ec0e73651504bfbd97539d541ec398cea3596ece75c40b362795",
+      "export_sha256": "9fccc411f5147553125e5ef028ecbc3b8484919c8b4e4f51edff5d959f368f57",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_mlb_bvp_matchup_ledger.py",
+      "role": "선수 ID 기반 직접 맞대결 원장",
+      "source_sha256": "9a03a15ec8af98bf1399db43f5daa57bd8eed45103d3e3000a59264c171b6597",
+      "export_sha256": "3383cd06a90437df1c34217b5167d84f785cb16a02399d5be421b3bb5921bdf7",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/criteria/_mlb_direction_criterion_season_extract.py",
+      "role": "PBP 기반 자연어 판단기준 추출",
+      "source_sha256": "926c2a40b5e2cd47191bd98f6d9dd3ee21cd50dc41895d90a739ad93e0a3808f",
+      "export_sha256": "5bbeaa74684eeb43f27175680c8acd9e3dfeb043d4c2b211d2479b6306736f03",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/criteria/_mlb_direction_criterion_retrieval.py",
+      "role": "기준 날짜 제한·조건 검색",
+      "source_sha256": "08d98bd078a343a5472ea34d3194a3991713608c396711168207eaf44aa92f69",
+      "export_sha256": "ce79932f7ce203d9aa02732e8a5889eaaf2473f3677b99a6355a5943b0381805",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/adjudication/_mlb_layered_adjudicator_research.py",
+      "role": "단계별 근거·충돌·최종 판정",
+      "source_sha256": "09b7155756cca9bb645cdcd0e78a81b53ef33ab20e07cdb5dd7ce191aceb1581",
+      "export_sha256": "456af4ce15708a820af71d3e5cd0783666e5cf1331aa8db295ce8cce7d9d4040",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/direct_review/mlb_direct_review_run.py",
+      "role": "직접 정독 완료물·방향 검증",
+      "source_sha256": "4e6ed949e31bbe5195765fb55ea9b146ac580f2f4a0d99891a11d1c39d1747d5",
+      "export_sha256": "e18093ce98134699394bd9c067f04d3b03529e5633ebe3768c7d53e7c89fdabc",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/token_budget/mlb_inline_read_input.py",
+      "role": "정독 중복입력 축약·참조 복원",
+      "source_sha256": "7c1dfb9031fbadfcbabd0293f4fee124b1fcd1ad2c953dde4f137e752e9c8910",
+      "export_sha256": "81947e6e897aacd7b9c67ce0bc3bddba7c13785507bd707dbbef5a9c6d0df2a1",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/remote/_colab_offload.py",
+      "role": "Colab 단계별 패키징·동일성 비교",
+      "source_sha256": "42ec0ce416a4ca42e80b5b3f7a090f1334a3ef5c56dfb2abd086064a4ce2ac1c",
+      "export_sha256": "4f1f1a1b91c2844e19b93db3e0df836a39cd3f0122b840e22a97f10b3a0d5f4d",
+      "changes": [
+        "Shared-memory/thread documentation removed from remote payload file lists.",
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/remote/_colab_drive_pipeline.py",
+      "role": "Drive API 원격 원장 처리",
+      "source_sha256": "9a86c6186bd20056cb26790ee5e70fc896ed07c81c73e63be864cbd2704ec81d",
+      "export_sha256": "a56235b51cf99b79ecc588491f440a53d3615b9c98adf82ecc8041873b9821b8",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/stability/repeated_reasoning_metrics.py",
+      "role": "반복 추론 방향·문턱 일관성 집계",
+      "source_sha256": "05ca7bd45ab329ad8b02bad8a65d48116538b39ca0524b4e36268702bb9d026e",
+      "export_sha256": "442ea78bd5b0e1d8948ad5082054404c0a5e374475ee7bb638dee14c237b496a",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/replay/_mlb_replay_asof.py",
+      "role": "과거 날짜 as-of 사전 입력",
+      "source_sha256": "7ad94067955f9144c52e527be4b6de86e8092d3b4f5860a403570bd577988823",
+      "export_sha256": "4133083837a2a8bc25665cbd30632ff2b5d82a141ccfbb6a8e7d89a48c5f7433",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/leakage/_mlb_baseline_clean.py",
+      "role": "clean baseline 비교",
+      "source_sha256": "7df90763104b7351e5f31e0d161d4a00855e7b5c8875fc62f233b232a6f340ef",
+      "export_sha256": "9178a0b4759504438b0466d5a92c485c36104b0e105ef0358a08c52ee873c9fb",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "experiments/remote/mlb_daily_history_refresh.py",
+      "role": "일일 원격 history 갱신·반영 보호",
+      "source_sha256": "b1c3d855c7e18b6a9e564fa84d606dd33b40eab1138be702f5ee431722e2f05c",
+      "export_sha256": "17b015726e608c3d9b44d6cbcf5203cb56d3865b975b7a7223a7ba305bb10aab",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_train_v3.py",
+      "role": "공통 학습·특성 선택 함수",
+      "source_sha256": "2704e3a3c36e024b95776ce0e9a9667931bfced89250c7b972f4b6b26be513aa",
+      "export_sha256": "d4fd7e9e568285565e7f17e5b7e99de7262bb6eb9ef99ce111a5ef743e0f2c9b",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_open_validate.py",
+      "role": "학습 자료 load 함수",
+      "source_sha256": "7d0f30790b567d8086941234067372ede39a1fc6c3a173307b6c1dac490980e8",
+      "export_sha256": "70f254df537c42a3c080b5757adabd1a0c2cd0ba50486345cc0f1351816eeab7",
+      "changes": [
+        "Only data-loader/closing-market classifier and declarations retained; financial-return evaluation omitted."
+      ]
+    },
+    {
+      "path": "src/_mlb_run_total_validate_clean.py",
+      "role": "closing 시장 열 판별",
+      "source_sha256": "a8c5ad272e0c028898787182095d08b80aa93a863a3544bc0d65f2ea0bdfecc2",
+      "export_sha256": "c0ed81df17fdcdfad5f76e4943b8af378c43ef300828a5acfe1de0a68234459f",
+      "changes": [
+        "Only data-loader/closing-market classifier and declarations retained; financial-return evaluation omitted.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_codex_exec_bridge.py",
+      "role": "Codex CLI timeout·결과 처리",
+      "source_sha256": "e6ed73085a049030e65e464ee26a851dc950d8c60aab2713fb8709c2c39952be",
+      "export_sha256": "506970ef2f64c584008ca2644ee74b1a351b44d77e1147eea0be75beb7d25a09",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_claude_bridge.py",
+      "role": "Claude CLI 호출 경계",
+      "source_sha256": "2899e088b999223dc63c3c7c8a6b6ee6c4d59363c79f8a8348f84765e275208f",
+      "export_sha256": "bb0d5ea6947a7a81980de5ced980c65ee9d89eddb5c884b2295399dbecfddaa8",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_claude_crosscheck.py",
+      "role": "Claude 독립 교차검토 요청",
+      "source_sha256": "b07f20a564d229f7399751c28a4deb357c9aa7cea4889eb8661efa7de22441c3",
+      "export_sha256": "964eb0b32525b1bafedacdaf6949b5a9eabba1f255de1bf6a96597e3b352be11",
+      "changes": [
+        "Crosscheck CLI league selection restricted to MLB.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "prompts/_make_batch_wf.py",
+      "role": "정독 프롬프트 계약",
+      "source_sha256": "1f8165a1d69a00b5355393fc13feb75c21654209848cd9008ef1fbf9198665f9",
+      "export_sha256": "b7a49acd761838e7925e6323b9bd0dbda0de05178a733ffbe0f97430d597fb58",
+      "changes": [
+        "Only the historical prompt constant retained; workflow launch/generation omitted."
+      ]
+    },
+    {
+      "path": "prompts/_make_synth_wf.py",
+      "role": "사전·사후 합성 프롬프트",
+      "source_sha256": "4680bf6edcdd8f8bfeba8eb95974cf2b948d4ddcb5e8b3581b815ee1e33e781a",
+      "export_sha256": "25d90e5dcb0a9398571f92af44216fef84fb48422a085ffcf8f08da1ef923f47",
+      "changes": [
+        "Only the historical prompt constant retained; workflow launch/generation omitted."
+      ]
+    },
+    {
+      "path": "src/_sp_form.py",
+      "role": "선발 과거 폼 표",
+      "source_sha256": "5ffb1e34e5bb2326325185f60913e4dfad711bbc171ba9b3daa953049935a230",
+      "export_sha256": "424d9db01c30de0a1fd75d9f9b3176cd64c6b2422086c2ec6fb1c2d7f1d2e0b1",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_mlb_narr_contract_requirements.py",
+      "role": "네레이터 출력 필수항목 계약",
+      "source_sha256": "5b24b13bf5d1961a7d3a164ad12a797e09045cf27114c00eb63f2e9232c34943",
+      "export_sha256": "4d12644dfc7b62313fadc137f5860cef47933b15ea94d632384318a160c82432",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_narr_model_defense_validate.py",
+      "role": "모델근거·네레이터 행 검사",
+      "source_sha256": "3359c3e05874e46631213f0692c4246e46d1d4653ee728b0c91f5ff4c69415dd",
+      "export_sha256": "edd3751e6f5ae96d36fa51ac062a189b064369dee09524a0a08eff73bbc34f86",
+      "changes": [
+        "Amount-derived model-active shortcut removed; other explicit model-evidence checks retained. This changes that eligibility branch.",
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_result_status.py",
+      "role": "최종·중단 경기 상태 분류",
+      "source_sha256": "d1a153b83c17dcb83eba260eb416a02af19b0ad8076df2f28d76fb9cdd13a121",
+      "export_sha256": "b610d0b99eaec1381d99a5694765c53f57507439a5eb5e8a95ca0c6f990a4b2e",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_mlb_name_list.py",
+      "role": "이름·선수 ID 연결 보조",
+      "source_sha256": "2c71f5d525bd232eae0b08dc70db80d40a5ef0eeae51c0152b427fcabc5b16bc",
+      "export_sha256": "daebe0c1d95aae246f5e89e90855a6e28a0751aa271748700ceaae5162053953",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/tools/mlb_matchup_review.py",
+      "role": "선발·타자·불펜 검토 계약",
+      "source_sha256": "861f001647bd3cff43a9e0caad3cc0ddc047e05c8f2e0b4d60750a2e23ae8a20",
+      "export_sha256": "8d7795a0bb34cf65ce41c41821d9380c6065f1a8e460253ff27bcf08c00425a6",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/tools/mlb_full_review_views.py",
+      "role": "선수 세부 원문 비교 뷰",
+      "source_sha256": "f7bd4ca9b4a42d7db5f6824d3bfcbd22cef8a729bcfd67e64126eb72087ab2d2",
+      "export_sha256": "577a0e4cdb1f041391bf706ca6722dd1350af7d55707537cac3a3b64534f049f",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/tools/mlb_news_recovery_audit.py",
+      "role": "사전 뉴스 출처·시점 검사",
+      "source_sha256": "a5327ad5bbab4a4b157ae7c4bed6acbc7828fb2adf7010727ec9c0c5a64c1e5a",
+      "export_sha256": "1ce417d6c3e869b13caba719db28fdf236fca233637b655f397e2455c0e02b71",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "experiments/remote/_colab_drive_api.py",
+      "role": "Drive API 입출력",
+      "source_sha256": "1c415493c6834fe689aae8e69a610842e06ffa39e72b95a4a64888a4224a24c8",
+      "export_sha256": "39cbc3c8a53921967fde9c2f4e23bba4a9f368d115dfddf9a94e99e9996d83f3",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "notebooks/archive/mlb_v2_final.ipynb",
+      "role": "초기 홈승 모델·누수 사례",
+      "source_sha256": "f3e2c7476bd7a9e28e606a432ea62e2c25c7f42c7600ec0bf7bb6381e3aebf75",
+      "export_sha256": "548cd98c04f59bba4458cc478730bb596a2c01100bfb289d69cbb28a96daf162",
+      "changes": [
+        "Removed 0 saved output objects, execution counts and user/session metadata; added archive warning.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "notebooks/archive/mlb_backtest_v11.ipynb",
+      "role": "초기 날짜별 GPT prompt 생성",
+      "source_sha256": "13b571f76b5b1bd4af962759c23a19513e8ed4c10791fba95e430b80e4883a8a",
+      "export_sha256": "7a69641853c6872d195444d20dbfb538e1963483f4b374d5114b9f9da0031425",
+      "changes": [
+        "Removed 0 saved output objects, execution counts and user/session metadata; added archive warning.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "notebooks/archive/모델재학습.ipynb",
+      "role": "모델 재학습·정합성 조사",
+      "source_sha256": "53e11a5bfde3174a7260fe46672692a2d66e704f55ee4cf1652d6820aedb9d64",
+      "export_sha256": "e7c8cfbeb21429c5c9ef2bd16600717468ce2cf8ee90160f1a3fdcd6b7ee404f",
+      "changes": [
+        "Removed original zero-based cell 81 (position 82), Yahoo request/parser code and its one output.",
+        "Removed 85 saved output objects, execution counts and user/session metadata; added archive warning.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "notebooks/archive/mlb머신러닝.ipynb",
+      "role": "초기 EDA·모델 비교",
+      "source_sha256": "3143608c19d17f138ac40356497611c22846b0f8114e41758a0898744d9fa5fa",
+      "export_sha256": "002114b3b9474c71017df9b28dd40c980d25672f041746e630053cbc2588d8fa",
+      "changes": [
+        "Removed 23 saved output objects, execution counts and user/session metadata; added archive warning.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "notebooks/archive/mlb_년도별_정규데이터_크롤링_노트북.ipynb",
+      "role": "정규시즌 공식 원자료 수집",
+      "source_sha256": "e546a50f207648baebe6e973565f9faaab1f9cb35ca5f21bd5ec7bc815af2184",
+      "export_sha256": "078be8424e515be938f86d0d5f6bb386f90f882b1b8e603660947e3b34c18de9",
+      "changes": [
+        "Removed 37 saved output objects, execution counts and user/session metadata; added archive warning."
+      ]
+    },
+    {
+      "path": "notebooks/archive/mlb_backtest_v11_파라미터화.ipynb",
+      "role": "연도 파라미터화 prompt 생성",
+      "source_sha256": "9f38eb06d6f0280915937c92e680f984d7d0d3be6d619735cab94071f66a49cc",
+      "export_sha256": "9ecb6cc7485980f32e499dcf4f30ccfbdaf161186ff4e9ad695b930ccd21503d",
+      "changes": [
+        "Removed 6 saved output objects, execution counts and user/session metadata; added archive warning.",
+        "Download duplicate suffix removed; original source hash retained.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/run_pregame.py",
+      "role": "경기 전 갱신·입력 준비 단계 순서",
+      "source_sha256": "212b5aabad352e970af88e9704fd31e58491bbf976538d1725e2cc9e1dd95780",
+      "export_sha256": "60be4a65b0e48c49f80f1209fc065c70f3a518316ac80a521151825d0e9d4434",
+      "changes": [
+        "MLB stage map only; other-league dispatch/main execution and messaging/readiness auto-send steps omitted. This map does not execute commands.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_form_label.py",
+      "role": "선수 폼 라벨·타임라인",
+      "source_sha256": "3590a209a32453fa541db834dcd2e0411b8df021c75e2f5d8646d76c14544784",
+      "export_sha256": "295f12073b8b9d3df936c06aea2d1957e3fc780503416d125de737263bf9a105",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_bp_form.py",
+      "role": "불펜 직전 폼",
+      "source_sha256": "f147c6c5b493b3259199e8cfeab4088ab54c9cd78500f27000effb0f7cdd3465",
+      "export_sha256": "7a94ce155aeab874803a54a277068950b82110afa2c7fba8a4ed053856b8a6df",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_ingest_days.py",
+      "role": "완료 경기 원장 ingest",
+      "source_sha256": "53033d3ab3e2d861fb76ccdb4d3c269d8aba88b8b8269e63459f4f9ba24baacd",
+      "export_sha256": "e39bc59d4f2a17fb8e8f792ba4ddea7d29ea6ca0369994fd46bbc454f9c99e07",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "src/_narr_synth_lessons.py",
+      "role": "사전 교훈 누적·조회",
+      "source_sha256": "1b1abe217fec21663b66d0c557c272f9bb81a6e0c529e65fc3f0fa1e8c8c2c4c",
+      "export_sha256": "ca633968d84bb6399550a88db8d5712e144b05fdb486d08fd9d178a179ffe1ed",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders."
+      ]
+    },
+    {
+      "path": "src/_narr_miss_log.py",
+      "role": "빗나간 판단·사전 근거 기록",
+      "source_sha256": "dc7c6144218afb9d32a9acce2a55428121a209ed7ae58ab009a2719d3c129202",
+      "export_sha256": "8ba46163d6d1be5c1e0a50a993a20569b2cb8ffd35d4e98068913917cae75a17",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "src/_mlb_reason_master_freshness.py",
+      "role": "회고 입력 최신성 점검",
+      "source_sha256": "c0b0efd34cdb383bd7ba13eb79bfe4af4f3e9c5d72abd9a6054de878d12d6464",
+      "export_sha256": "df08eedaf85c1bb7c7932fbfcbb69e063ad35308ca1f129587774c5df11a4729",
+      "changes": [
+        "Private host/account roots and internal work-note identifiers replaced with documented placeholders."
+      ]
+    },
+    {
+      "path": "tests/test_narr_inputs.py",
+      "role": "사전 회고·coverage·freeze 입력 회귀검사",
+      "source_sha256": "cd9d7f9b6b4664cd3f4ed64c79225189aac71ce3148689abdc79eabf09b14424",
+      "export_sha256": "6154592333b3fdff3c4fac00747e97b90377b3b72e0fa8c82e1869e00c95029e",
+      "changes": [
+        "Source retained with archive header; no model execution.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "tests/test_career_era.py",
+      "role": "ERA 합산·이닝 환산·비율 재계산 검사",
+      "source_sha256": "abee573b86e28a29e6190d55ec9ee435374b764fd482fc83dec936ca37f68b11",
+      "export_sha256": "2254144c1324ee848a2f49d97c3ec00bb59f7a4744d849e44ca01e5d262ba830",
+      "changes": [
+        "Source retained with archive header; no model execution."
+      ]
+    },
+    {
+      "path": "tests/test_narr_context_lineup_parsing.py",
+      "role": "라인업 문자열·불펜 as-of 회귀검사",
+      "source_sha256": "39a70f8c8f214d2979e2a6b3b8273eb0edb11ce944b9aaac3b1e1139bef1f4a9",
+      "export_sha256": "07f4bbe6ec7eb25041b9167fdf9b8e3f0097b6f2cf2adbc40f09f0ecab7ff765",
+      "changes": [
+        "Test module path points to exported src/narr_context.py; original CSV fixture remains excluded and required for its fixture-dependent test."
+      ]
+    },
+    {
+      "path": "archive/early_pipeline/collector/daily_collector.py",
+      "role": "초기 사전 수집 CSV 병합 함수 발췌",
+      "source_sha256": "fd0d12dcfa37c9068f9b6243dbd99aebb415cea0bc06fd84fcc1a1f3d5f555b8",
+      "export_sha256": "81b9c0e05e58fccf014b4f2086d0f728054ff0f4391ba1d9b3a27bd98474141a",
+      "changes": [
+        "Only historical CSV merge/save boundary retained; requests and market parsing omitted. New historical_save_boundary wrapper names the formerly inline statements.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "archive/early_pipeline/before/daily_updater.py",
+      "role": "사후 시장가격 덮어쓰기 가능 판본의 병합·저장 경계",
+      "source_sha256": "4678320111bb674f8de7e7cd808c3c5b65c23722117cf1515623eaba06c32fed",
+      "export_sha256": "ade4ab066d792f5f7630942dc0ed05856e9770065aa24f3f0b38325603ec49ed",
+      "changes": [
+        "Only historical CSV merge/save boundary retained; requests and market parsing omitted. New historical_save_boundary wrapper names the formerly inline statements.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "archive/early_pipeline/after/daily_updater.py",
+      "role": "사전 시장가격 보존을 위해 사후 저장 제거한 판본",
+      "source_sha256": "42982debffb63df75271d63e77a3cf736f4b389078847f5d43223b4820515293",
+      "export_sha256": "ef89808e2c0ce4bfbbf95902ea4462e43e1d631013b27b1d1b289a99650dbdb6",
+      "changes": [
+        "Only historical CSV merge/save boundary retained; requests and market parsing omitted. New historical_save_boundary wrapper names the formerly inline statements.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "notebooks/archive/daily_predictor.ipynb",
+      "role": "초기 로컬 일일 예측 노트북",
+      "source_sha256": "867c4ee9cedb30452c6171afb283284b7b633da4431e3e3e6e8d2a4304a3f602",
+      "export_sha256": "6b9aed341a422ae6dd19b3a6f0ed7f28897b66afba01d8764ed26ebe866797ab",
+      "changes": [
+        "Removed 0 saved output objects, execution counts and user/session metadata; added archive warning.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    },
+    {
+      "path": "notebooks/archive/result_tracker.ipynb",
+      "role": "초기 결과 누적 노트북",
+      "source_sha256": "a696d1a088f2cc576ef2852bdb0570df85990d067a5be75b7c161a79a28dafee",
+      "export_sha256": "afe8e30ee2958631d6ec7c5a4bbddbc0dab20755d53e57babaf1d327a48ec392",
+      "changes": [
+        "Removed 0 saved output objects, execution counts and user/session metadata; added archive warning.",
+        "Public terminology passes: legacy operation, sports-market and win/loss-axis names renamed to neutral terms in identifiers, strings and comments; calculations unchanged."
+      ]
+    }
+  ],
+  "export_hash_basis": "Canonical LF text bytes, verified against Git staged/committed blobs. Binary bytes are not normalized."
+}
