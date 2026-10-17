@@ -73,6 +73,14 @@
 
 도식은 개발 과정에서 다룬 처리 흐름을 요약합니다. 모델과 네레이터의 입출력은 한 단계 안에 묶어 표현했습니다. 모든 실험 기능을 하나의 운영 경로에 동시에 적용한 것은 아닙니다.
 
+선수별 근거 연결, 추론 실행, 출력 검사와 회고의 세부 흐름은 아래 문서에서 볼 수 있습니다. 각 문서에는 검정 배경 도식, 확대 가능한 SVG와 단계별 확대본을 함께 넣었습니다.
+
+| 상세 문서 | 확인할 내용 |
+|---|---|
+| [네레이터 구조와 긴 입력 대응](docs/NARRATOR_ARCHITECTURE.md) | PBP 정독·선수별 기록 누적 → 사전 입력 → 경기별 추론·검사·회고. Lost in the Middle에 대응한 입력 도달 검사, 메모장, 섹션별 중간 기록 |
+| [판단기준 추출과 적용](docs/JUDGMENT_CRITERIA.md) | 실제 경기를 읽어 사전 근거의 판단 방법을 추출하고, 새 경기 조건과 반대 근거에 대조한 과정 |
+| [머신러닝 학습·예측 구조](docs/ML_ARCHITECTURE.md) | 경기 이전 특성 구성, 시간순 평가, 최종 재학습, 예측 당시 입력·근거 보존 |
+
 ## 문제와 수정
 
 | 발견한 문제 | 추적·수정한 내용 |
@@ -120,6 +128,10 @@
 | [연구 보고서](docs/RESEARCH_REPORT.md) | 시작 계기, 수집·모델 개발, 오류 사례, 비교 실험, 한계 |
 | [개발·연구 이력](docs/WORK_HISTORY.md) | 주제별 구현과 개선 과정 |
 | [구조도 텍스트 원본](assets/diagrams/architecture.mmd) | 그림과 같은 내용을 연결별로 기록한 Mermaid 문서 |
+| [네레이터 상세 구조](docs/NARRATOR_ARCHITECTURE.md) | 선수별 기록·격리 추론·긴 입력 대응을 세부 도식으로 설명 |
+| [판단기준 상세 구조](docs/JUDGMENT_CRITERIA.md) | 추출과 검색·조건 적용을 별도 도식으로 설명 |
+| [머신러닝 상세 구조](docs/ML_ARCHITECTURE.md) | 평가·재학습·예측의 연결과 경계를 설명 |
+| [상세 도식 모음](assets/diagrams/details/README.md) | 5개 Mermaid/SVG/PNG와 단계별 확대본 |
 | [소스 지도](src/README.md) | 수집·학습·네레이터·회고의 코드 위치와 세대 구분 |
 | [코드 정리 변경표](docs/CODE_CHANGELOG.md) | 운영 원본에서 제외·변경한 부분과 검수 범위 |
 
@@ -132,6 +144,9 @@ mlb-prediction-error-analysis/
 ├── docs/
 │   ├── RESEARCH_REPORT.md
 │   ├── WORK_HISTORY.md
+│   ├── NARRATOR_ARCHITECTURE.md
+│   ├── ML_ARCHITECTURE.md
+│   ├── JUDGMENT_CRITERIA.md
 │   ├── CODE_CHANGELOG.md
 │   ├── CODE_DEPENDENCIES.md
 │   └── CODE_MANIFEST.json
@@ -149,7 +164,8 @@ mlb-prediction-error-analysis/
         ├── research-flow.mmd
         ├── research-flow.png
         ├── research-flow-mobile.mmd
-        └── research-flow-mobile.png
+        ├── research-flow-mobile.png
+        └── details/             # 세부 Mermaid·SVG·PNG·확대본
 ```
 
 </details>
