@@ -1,0 +1,13 @@
+{
+ "git_commit": "e73544e",
+ "git_dirty": false,
+ "code_sha256": {
+  "script": "98cc3d38194f81557639f40b58172297a4a820840f3602a5faa4e35e28237517",
+  "feature_defs": "d4fd7e9e568285565e7f17e5b7e99de7262bb6eb9ef99ce111a5ef743e0f2c9b",
+  "clean_swap_defs": "9178a0b4759504438b0466d5a92c485c36104b0e105ef0358a08c52ee873c9fb",
+  "requirements": "5dcdb770ce8213f79e0b6a02f3651e9b4dfa4e821d61ec3c838337fe1af2c61f"
+ },
+ "script_version": "2026-10-23.3",
+ "run_batch_id": "20261023T064114",
+ "column_map_sha256": "94548ed26ad66ffb3671ed9d707115f51bb13724ce45314060b07c85196a99ba"
+}
