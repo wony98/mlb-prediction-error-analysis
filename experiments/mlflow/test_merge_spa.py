@@ -59,16 +59,17 @@ def test_naive_merge_would_duplicate():
 
 
 def _games_with_market():
-    """apply_column_map 검사용: 원본 이름의 시장 열을 가진 작은 표."""
+    """apply_column_map 검사용: 테스트 전용 가명 입력 열을 가진 작은 표.
+    실제 원본 열 이름은 저장소 밖 로컬 매핑 파일에만 두므로 여기서는 쓰지 않는다."""
     df = games()
-    for c in ('home_ML', 'away_ML', 'ou_line', 'spread', 'era_vs_ou', 'ops_vs_ou'):
+    for c in ('raw_home_price', 'raw_away_price', 'raw_total_threshold', 'raw_margin', 'raw_era_ratio', 'raw_ops_ratio'):
         df[c] = 1.0
-    df['over'] = [1, 0, 1, 0, 1]
+    df['raw_upper_target'] = [1, 0, 1, 0, 1]
     return df
 
 
-FULL_MAP = {'home_ML': 'home_WIN_LOSS', 'away_ML': 'away_WIN_LOSS', 'ou_line': 'run_total_baseline', 'spread': 'run_margin',
-            'over': 'upper', 'era_vs_ou': 'era_vs_run_total', 'ops_vs_ou': 'ops_vs_run_total'}
+FULL_MAP = {'raw_home_price': 'home_WIN_LOSS', 'raw_away_price': 'away_WIN_LOSS', 'raw_total_threshold': 'run_total_baseline',
+            'raw_margin': 'run_margin', 'raw_upper_target': 'upper', 'raw_era_ratio': 'era_vs_run_total', 'raw_ops_ratio': 'ops_vs_run_total'}
 
 
 def test_column_map_normal():
@@ -76,12 +77,12 @@ def test_column_map_normal():
     out, info = apply_column_map(_games_with_market(), FULL_MAP)
     assert all(c in out.columns for c in REQUIRED_AFTER_MAP)
     assert info['renamed_columns'] == 7 and info['map_entries_absent_in_data'] == 0
-    assert 'home_ML' not in out.columns, '원본 이름은 남지 않아야 한다'
+    assert 'raw_home_price' not in out.columns, '입력 이름은 남지 않아야 한다'
 
 
 def test_column_map_missing_required_fails():
     from train_clean_vs_leaky import apply_column_map
-    m = dict(FULL_MAP); m.pop('over')  # upper 가 만들어지지 않음
+    m = dict(FULL_MAP); m.pop('raw_upper_target')  # upper 가 만들어지지 않음
     try:
         apply_column_map(_games_with_market(), m)
     except AssertionError as e:
