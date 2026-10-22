@@ -1,12 +1,12 @@
 # MLflow 실험 추적: 규칙 탐지 누수 피처 vs 제거 세트 재실험
 
-2026-10-23. 이 폴더는 저장소에 보존된 학습 코드(`src/_mlb_train_v3.py`, `experiments/leakage/_mlb_baseline_clean.py`)의 피처·누수 정의를 그대로 가져와, 같은 분할에서 규칙 탐지 누수 열이 있는 피처 세트와 없는 세트를 **새로 학습**하고 모든 실행을 MLflow로 기록한 결과다. 과거 운영 당시에는 MLflow를 쓰지 않았다. 과거 실험을 사후에 옮긴 것이 아니라 2026-10-23에 로컬 CPU에서 다시 돌린 실행이다.
+2026-10-23에 저장소에 보존된 학습 코드(`src/_mlb_train_v3.py`, `experiments/leakage/_mlb_baseline_clean.py`)의 피처와 누수 판정 규칙을 그대로 가져와 로컬 CPU에서 다시 학습했다. 같은 분할에서 규칙 탐지 열이 있는 피처 세트와 없는 세트를 비교하고, 모든 실행을 MLflow로 기록했다. 과거 운영 당시에는 MLflow를 쓰지 않았다.
 
 유효 결과는 batch `20261023T064114`(커밋 `e73544e`)다. 같은 날 앞선 두 실행이 있었다: 첫 실행은 as-of-prior 병합의 중복 키 결함으로 무효, 두 번째는 결함을 고친 뒤의 실행이며 이번 결과와 지표가 완전히 같다(아래 "이전 실행과의 관계").
 
 ## 왜 했나
 
-연구 보고서에서 "경기 당일 결과가 선발투수 누적값에 섞이는" 누수를 찾아 고친 과정을 설명했지만, 누수 열이 있는 세트와 없는 세트의 성능 차이를 같은 조건에서 비교한 기록은 노트북 출력과 화면 출력으로만 남아 있었다. 이번 실행은 그 비교를 파라미터·지표·산출물·실행 코드 사본이 묶인 run 단위로 남겨, 어느 설정으로 어떤 숫자가 나왔는지 다시 확인할 수 있게 한다.
+연구 보고서에서 "경기 당일 결과가 선발투수 누적값에 섞이는" 누수를 찾아 고친 과정을 설명했지만, 누수 열이 있는 세트와 없는 세트의 성능 차이를 같은 조건에서 비교한 기록은 노트북 출력과 화면 출력으로만 남아 있었다. 이번에는 파라미터, 지표, 산출물과 실행 코드 사본을 run별로 묶어 남겼다. 어느 설정에서 어떤 결과가 나왔는지 확인할 수 있다.
 
 ## 설계
 
@@ -17,7 +17,7 @@
 | 분할 | train season≤2023 / val 2024 / test 2025. `src/_mlb_train_v3.py`와 동일. `home_win` 7,279/2,422/2,421, `upper` 6,967/2,319/2,312(기준점 결측 524경기 제외) |
 | 타깃 | `home_win`(홈 승리), `upper`(총득점 기준점 초과) |
 | 모델 | LightGBM 분류기. 하이퍼파라미터는 `src/_mlb_train_v3.LGB_PARAMS` 그대로(n_jobs만 인자), val AUC 기준 early stopping 50 |
-| 누수 판정 범위 | `src/_mlb_train_v3.is_leaky`의 **이름 규칙**: 현재 경기 결과가 포함된 시즌·최근 누적 스탯(era/whip/k9/bb9/hr9/ops/wr/rs/ra 계열). lag1·roll·prior 계열은 경기 전 시점 값이라 유지. **규칙 탐지 0열 = 전체 입력 시점 누수 없음이 아니다.** 시장 피처 등 다른 열의 예측 시점은 감사하지 않았다 |
+| 누수 판정 범위 | `src/_mlb_train_v3.is_leaky`의 이름 규칙: 현재 경기 결과가 포함된 시즌·최근 누적 스탯(era/whip/k9/bb9/hr9/ops/wr/rs/ra 계열). lag1·roll·prior 계열은 경기 전 시점 값이라 유지. **규칙 탐지 0열 = 전체 입력 시점 누수 없음이 아니다.** 시장 피처 등 다른 열의 예측 시점은 감사하지 않았다 |
 | as-of-prior SP | 선발투수의 현재 경기 제외 누적치(`--spa`). `_mlb_train_deploy.py`와 같은 방식으로 병합. (game_pk, side) 중복 키 18개·9경기는 어느 값이 맞는지 근거가 없어 해당 경기의 값만 제외(NaN), 경기 행은 삭제하지 않음. 병합은 many_to_one 검증, 병합 후 행 수·gamePk 유일성 검사(`test_merge_spa.py`) |
 
 피처 세트(타깃마다 별도 run):
@@ -25,13 +25,18 @@
 | run 이름 | 구성 | 규칙 탐지 열 |
 |---|---|---|
 | `base_v2_leaky` | 종결 v2 베이스라인 피처(승패 12개 / 총득점 22개) | 7 / 14 |
-| `base_v2_clean_swap` | 베이스라인에서 era/k9/bb9_diff를 as-of-prior `d_spa_*`로 교체 (`experiments/leakage`와 동일, **승패 베이스라인 전용 규칙**이라 `upper`에서는 `base_v2_leaky`와 같다) | 4 / 14 |
+| `base_v2_clean_swap` | 베이스라인에서 era/k9/bb9_diff를 as-of-prior `d_spa_*`로 교체 (`experiments/leakage`와 동일, 승패 베이스라인 전용 규칙이라 `upper`에서는 `base_v2_leaky`와 같다) | 4 / 14 |
 | `full_leaky` | 수치형 전체에서 타깃·id·문자열 제외 (원래 v3 main의 FULL) | 50 |
 | `full_clean` | `full_leaky`에서 `is_leaky` 열 제거 | 0 |
 | `full_clean_plus_spa` | `full_clean` + as-of-prior SP 스탯(home/away/diff) | 0 |
 | `market_price_implied` | 참고: 승패 시장가격에서 환산한 확률의 AUC·정확도. 모델 아님. 시장가격이 있는 경기만 | — |
 
-각 run에 기록하는 것: params(타깃·피처 세트·피처 수·LightGBM 파라미터·분할 크기), metrics(val/test AUC·logloss·acc·n, 시장가격 있는 경기 집합 기준 `*_marketgames_*`, best_iteration, fit_seconds), tags(데이터·spa·매핑 파일 SHA-256, git 커밋·dirty, 스크립트·피처 정의·requirements SHA-256, `run_batch_id`), artifacts(`features.json`, `rule_leaky_columns.json`, `importance.csv`, `result.json`, `data_checks.json`, `code_snapshot/`(실행 당시 코드 사본), LightGBM 모델).
+각 run에는 다음 항목을 기록한다.
+
+- params: 타깃, 피처 세트, 피처 수, LightGBM 파라미터, 분할 크기
+- metrics: val/test AUC, logloss, acc, n, 시장가격 있는 경기 집합 기준 `*_marketgames_*`, best_iteration, fit_seconds
+- tags: 데이터, spa, 매핑 파일의 SHA-256, git 커밋과 dirty, 스크립트, 피처 정의, requirements의 SHA-256, `run_batch_id`
+- artifacts: `features.json`, `rule_leaky_columns.json`, `importance.csv`, `result.json`, `data_checks.json`, `code_snapshot/`(실행 당시 코드 사본), LightGBM 모델
 
 ## 실행
 
@@ -50,7 +55,7 @@ mlflow ui --backend-store-uri sqlite:///<DATA_ROOT>/mlflow/mlflow.db
 - 저장 백엔드: MLflow 3.17은 파일 저장소(`./mlruns`)를 유지보수 모드로 두고 예외를 내므로 로컬 sqlite를 쓴다. 서버는 띄우지 않는다. 모델 레지스트리는 쓰지 않았다.
 - `--quick`은 트리 50개로 동작만 확인하는 smoke 옵션이다. 표의 숫자는 `--quick` 없이 돌린 값이다.
 - 스크립트는 `--out` 아래에만 쓴다. 운영 폴더의 기존 모델 파일은 읽지도 쓰지도 않는다.
-- `mlflow.db`·`mlartifacts/`·데이터·매핑 파일·모델은 git에 올리지 않는다(저장소 `.gitignore`는 허용 목록 방식). 이 폴더에서 올리는 것은 스크립트·테스트·requirements·README·`outputs/summary.csv`·`runs_export.csv`·`data_checks.json`·`code_snapshot/code_manifest.json`뿐이다.
+- `mlflow.db`, `mlartifacts/`, 데이터, 매핑 파일, 모델은 git에 올리지 않는다(저장소 `.gitignore`는 허용 목록 방식). 이 폴더에서 올리는 것은 스크립트, 테스트, requirements, README와 `outputs/summary.csv`, `runs_export.csv`, `data_checks.json`, `code_snapshot/code_manifest.json`뿐이다.
 
 ## 결과 (test = 2025)
 
