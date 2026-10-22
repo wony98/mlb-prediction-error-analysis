@@ -140,3 +140,10 @@
 | [notebooks/archive/result_tracker.ipynb](../notebooks/archive/result_tracker.ipynb) | 초기 결과 누적 노트북 | Removed 0 saved output objects, execution counts and user/session metadata; added archive warning. |
 
 [소스 지도](../src/README.md) · [의존성 및 입력 경계](CODE_DEPENDENCIES.md) · [해시 명세](CODE_MANIFEST.json)
+
+## 2026-10-23 추가: MLflow 재실험 (발췌본 아님, 새로 작성)
+
+- `experiments/mlflow/`: 규칙 탐지 누수 열이 있는 피처 세트와 없는 세트를 같은 분할에서 다시 학습하고 MLflow로 기록하는 러너(`train_clean_vs_leaky.py`), 병합 반례 테스트(`test_merge_spa.py`), 고정 버전 `requirements.txt`, 설계·실행법 `README.md`, 실행 요약 `outputs/summary.csv`·`runs_export.csv`·`data_checks.json`·`code_snapshot/code_manifest.json`. 저장소의 기존 정의(`src/_mlb_train_v3.py`, `experiments/leakage/_mlb_baseline_clean.py`)를 import해 재사용한다.
+- 원본 데이터 열 이름은 저장소의 용어 정리와 호환되지 않으므로 로컬 매핑 파일(저장소 미포함)로 중립 이름에 연결한 뒤 실행한다. 매핑 파일·추적 DB·아티팩트·모델·데이터는 저장소에 포함하지 않는다.
+- `docs/mlflow_leakage_experiment.md`: 2026-10-23 로컬 CPU 실행 결과·해석·결정·한계. 같은 날 공개 전 작업 사본에서의 첫 실행은 병합 결함으로 무효, 두 번째 실행은 수정 후 결과이며 이번 실행과 지표를 대조해 기록했다.
+- 과거 운영 당시 MLflow를 쓴 것이 아니라 2026-10-23에 새로 돌린 실행이다. 87개 발췌본 목록(`CODE_MANIFEST.json`)에는 포함하지 않는다.

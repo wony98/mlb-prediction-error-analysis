@@ -1,0 +1,63 @@
+{
+ "stage": "after_merge",
+ "rows": 12122,
+ "cols": 250,
+ "seasons": {
+  "2021": 2429,
+  "2022": 2430,
+  "2023": 2420,
+  "2024": 2422,
+  "2025": 2421
+ },
+ "gamePk_duplicates": 0,
+ "date_min": "2021-04-01",
+ "date_max": "2025-09-28",
+ "renamed_columns": 29,
+ "map_entries": 29,
+ "map_entries_absent_in_data": 0,
+ "target_nan": {
+  "home_win": 0,
+  "upper": 524
+ },
+ "spa_rows": 26624,
+ "spa_duplicate_key_rows": 36,
+ "spa_duplicate_keys": 18,
+ "spa_excluded_games": [
+  632192,
+  632966,
+  633224,
+  633267,
+  633299,
+  633501,
+  633890,
+  634408,
+  661702
+ ],
+ "spa_excluded_games_in_data": [
+  632192,
+  632966,
+  633224,
+  633267,
+  633299,
+  633501,
+  633890,
+  634408,
+  661702
+ ],
+ "spa_coverage_home_era": 0.9785513941593796,
+ "spa_policy": "duplicate (game_pk, side) keys excluded (values set to NaN); no row dropped from games table",
+ "rows_after_merge": 12122,
+ "gamePk_duplicates_after_merge": 0,
+ "split_rows": {
+  "home_win": {
+   "train": 7279,
+   "val": 2422,
+   "test": 2421
+  },
+  "upper": {
+   "train": 6967,
+   "val": 2319,
+   "test": 2312
+  }
+ }
+}
