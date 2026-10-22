@@ -58,8 +58,53 @@ def test_naive_merge_would_duplicate():
     assert len(naive) == 6, '검증 없는 병합은 6행이 된다'
 
 
+def _games_with_market():
+    """apply_column_map 검사용: 원본 이름의 시장 열을 가진 작은 표."""
+    df = games()
+    for c in ('home_ML', 'away_ML', 'ou_line', 'spread', 'era_vs_ou', 'ops_vs_ou'):
+        df[c] = 1.0
+    df['over'] = [1, 0, 1, 0, 1]
+    return df
+
+
+FULL_MAP = {'home_ML': 'home_WIN_LOSS', 'away_ML': 'away_WIN_LOSS', 'ou_line': 'run_total_baseline', 'spread': 'run_margin',
+            'over': 'upper', 'era_vs_ou': 'era_vs_run_total', 'ops_vs_ou': 'ops_vs_run_total'}
+
+
+def test_column_map_normal():
+    from train_clean_vs_leaky import REQUIRED_AFTER_MAP, apply_column_map
+    out, info = apply_column_map(_games_with_market(), FULL_MAP)
+    assert all(c in out.columns for c in REQUIRED_AFTER_MAP)
+    assert info['renamed_columns'] == 7 and info['map_entries_absent_in_data'] == 0
+    assert 'home_ML' not in out.columns, '원본 이름은 남지 않아야 한다'
+
+
+def test_column_map_missing_required_fails():
+    from train_clean_vs_leaky import apply_column_map
+    m = dict(FULL_MAP); m.pop('over')  # upper 가 만들어지지 않음
+    try:
+        apply_column_map(_games_with_market(), m)
+    except AssertionError as e:
+        assert '필요한 열' in str(e)
+    else:
+        raise AssertionError('필수 열이 없으면 중단해야 한다')
+
+
+def test_column_map_collision_fails():
+    from train_clean_vs_leaky import apply_column_map
+    df = _games_with_market()
+    df['home_WIN_LOSS'] = 0.0  # 매핑 대상 이름이 이미 존재 → 중복 열
+    try:
+        apply_column_map(df, FULL_MAP)
+    except AssertionError as e:
+        assert '중복' in str(e)
+    else:
+        raise AssertionError('열 이름 충돌이면 중단해야 한다')
+
+
 if __name__ == '__main__':
-    for fn in (test_normal, test_duplicate_key_identical_values, test_duplicate_key_conflicting_values, test_naive_merge_would_duplicate):
+    for fn in (test_normal, test_duplicate_key_identical_values, test_duplicate_key_conflicting_values, test_naive_merge_would_duplicate,
+               test_column_map_normal, test_column_map_missing_required_fails, test_column_map_collision_fails):
         fn()
         print('ok', fn.__name__)
     print('all merge checks passed')
