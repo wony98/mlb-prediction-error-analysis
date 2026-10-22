@@ -145,3 +145,15 @@
 !/assets/diagrams/details/narrator-detail.png
 !/assets/diagrams/details/narrator-detail.svg
 !/assets/diagrams/details/README.md
+# MLflow 재실험 (2026-10-23): 스크립트·테스트·환경·요약만 허용. mlflow.db/mlartifacts/모델/데이터는 계속 제외
+!/experiments/mlflow/train_clean_vs_leaky.py
+!/experiments/mlflow/test_merge_spa.py
+!/experiments/mlflow/requirements.txt
+!/experiments/mlflow/README.md
+!/experiments/mlflow/outputs/summary.csv
+!/experiments/mlflow/outputs/runs_export.csv
+!/experiments/mlflow/outputs/data_checks.json
+!/experiments/mlflow/outputs/code_snapshot/code_manifest.json
+!/docs/mlflow_leakage_experiment.md
+!/docs/img/mlflow_clean_vs_leaky_auc.png
+!/docs/img/mlflow_runs_list.png
